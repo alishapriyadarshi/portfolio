@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
-  const sectionClass = "container py-16";
+  const sectionClass = "container mx-auto px-4 py-16";
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -19,7 +19,7 @@ export default function Home() {
         </section>
 
         {/* Separator */}
-        <div className="container">
+        <div className="container mx-auto px-4">
           <Separator />
         </div>
 
@@ -29,7 +29,7 @@ export default function Home() {
         </section>
 
         {/* Separator */}
-        <div className="container">
+        <div className="container mx-auto px-4">
           <Separator />
         </div>
 
@@ -39,12 +39,12 @@ export default function Home() {
         </section>
 
         {/* Separator */}
-        <div className="container">
+        <div className="container mx-auto px-4">
           <Separator />
         </div>
 
         {/* Contact Section */}
-        <section id="contact" className={`${sectionClass}`}>
+        <section id="contact" className={sectionClass}>
           <div className="mx-auto flex max-w-[58rem] flex-col items-center text-center gap-4">
             <h2 className="text-3xl font-bold leading-[1.1] sm:text-5xl">
               Contact Me
