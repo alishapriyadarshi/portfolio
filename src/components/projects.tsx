@@ -12,6 +12,7 @@ import { Checkbox } from "./ui/checkbox";
 import { LiveThemeSwitcher } from "./live-theme-switcher";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { ChevronsUpDown } from "lucide-react";
+import { ChatDemo } from "./chat-demo";
 
 
 function GoalUpDemo() {
@@ -151,7 +152,7 @@ export function LiveThemeSwitcher() {
     title: "Real Time Chat Application",
     description: "Built a message processing pipeline for a real-time chat app, ensuring schema validation and fast querying via MongoDB indexing.",
     tags: ["Real-Time", "MongoDB", "Schema Validation"],
-    demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Chat Demo</div>,
+    demo: <ChatDemo />,
     codeSnippet: `
 // MongoDB Indexing for Chat
 db.messages.createIndex({ 
