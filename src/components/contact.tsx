@@ -18,9 +18,9 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { submitContactForm } from "@/lib/actions"
 import { contactFormSchema } from "@/lib/schemas"
 import { Card, CardContent } from "./ui/card"
+import { sendContactEmail } from "@/ai/flows/contact-flow"
 
 export function ContactForm() {
   const { toast } = useToast()
@@ -38,7 +38,7 @@ export function ContactForm() {
   async function onSubmit(values: z.infer<typeof contactFormSchema>) {
     setIsSubmitting(true)
     try {
-      const result = await submitContactForm(values)
+      const result = await sendContactEmail(values)
       if (result.success) {
         toast({
           title: "Success!",
