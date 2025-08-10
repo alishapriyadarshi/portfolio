@@ -72,7 +72,7 @@ function GoalUpDemo() {
                                     placeholder="e.g., Finish project proposal"
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
-                                    className="text-center"
+                                    className="text-center border bg-card"
                                 />
                                 <Button type="submit">Set</Button>
                             </form>
@@ -163,12 +163,21 @@ export function LiveThemeSwitcher() {
     tags: ["Real-Time", "MongoDB", "Schema Validation"],
     demo: <ChatDemo />,
     codeSnippet: `
-// MongoDB Indexing for Chat
-db.messages.createIndex({ 
-  channelId: 1, 
-  timestamp: -1 
-});
-`
+// Message Handling Logic
+const [messages, setMessages] = useState([]);
+const [input, setInput] = useState('');
+
+const sendMessage = () => {
+  if (input.trim()) {
+    const newMessage = { 
+      text: input, 
+      sender: 'user',
+      timestamp: new Date(),
+    };
+    setMessages([...messages, newMessage]);
+    setInput('');
+  }
+};`
   }
 ]
 
