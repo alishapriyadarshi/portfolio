@@ -85,6 +85,38 @@ function GoalUpDemo() {
     )
 }
 
+function ThemeCustomizerDemo() {
+    const [color, setColor] = React.useState("hsl(181 100% 28%)"); // Default primary color
+
+    const colors = [
+        { name: 'Electric Blue', hsl: 'hsl(181 100% 28%)' },
+        { name: 'Sunset Orange', hsl: 'hsl(24 96% 53%)' },
+        { name: 'Emerald Green', hsl: 'hsl(145 63% 42%)' },
+        { name: 'Royal Purple', hsl: 'hsl(262 80% 58%)' },
+    ];
+
+    return (
+        <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
+            <p className="font-semibold text-lg mb-2">Live Theme Customizer</p>
+            <div className="p-4 rounded-lg border flex flex-col gap-2 w-full" style={{ borderColor: color, transition: 'border-color 0.3s' }}>
+                <h3 className="font-bold text-md" style={{ color: color, transition: 'color 0.3s' }}>Sample Card</h3>
+                <p className="text-sm text-muted-foreground">Click a color to change my accent!</p>
+                <Button style={{ backgroundColor: color, color: 'hsl(0 0% 100%)', transition: 'background-color 0.3s' }} className="mt-2">Themed Button</Button>
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 mt-4">
+                {colors.map(c => (
+                    <button
+                        key={c.name}
+                        onClick={() => setColor(c.hsl)}
+                        className="w-6 h-6 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring transition-transform hover:scale-110"
+                        style={{ backgroundColor: c.hsl }}
+                        aria-label={`Set color to ${c.name}`}
+                    />
+                ))}
+            </div>
+        </div>
+    )
+}
 
 const projects = [
   {
@@ -111,15 +143,34 @@ function Goal() {
   },
   {
     title: "Personal Portfolio (React)",
-    description: "A responsive React portfolio featuring reusable components and GitHub API integration to effectively showcase projects.",
-    tags: ["React", "GitHub API", "Responsive Design"],
-    demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Portfolio Demo</div>,
+    description: "A responsive React portfolio featuring reusable components. The interactive demo below showcases how you can dynamically change theme colors.",
+    tags: ["React", "State Management", "Interactive UI"],
+    demo: <ThemeCustomizerDemo />,
     codeSnippet: `
-// Fetching GitHub Repos
-async function getRepos(username) {
-  const response = await fetch(\`https://api.github.com/users/\${username}/repos\`);
-  const data = await response.json();
-  return data;
+// Interactive Theme Customizer Demo
+function ThemeCustomizerDemo() {
+  const [color, setColor] = React.useState("hsl(181 100% 28%)");
+
+  const colors = [ 'hsl(181 100% 28%)', 'hsl(24 96% 53%)' ];
+
+  return (
+    <div>
+      <div style={{ borderColor: color }}>
+        <h3 style={{ color: color }}>Sample Card</h3>
+        <Button style={{ backgroundColor: color }}>
+          Themed Button
+        </Button>
+      </div>
+      <div>
+        {colors.map(c => (
+          <button
+            onClick={() => setColor(c)}
+            style={{ backgroundColor: c }}
+          />
+        ))}
+      </div>
+    </div>
+  )
 }`
   },
   {
