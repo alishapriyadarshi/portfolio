@@ -5,15 +5,7 @@ import Image from "next/image"
 export function Hero() {
   return (
     <div className="grid items-center gap-6">
-      <div className="flex flex-col items-start gap-4 md:flex-row md:gap-8">
-        <Image 
-          src="https://storage.googleapis.com/project-ava-dev-public/persistent/1b14a93a-1725-48b4-9844-773a4b64e0d9" 
-          alt="Profile Picture" 
-          width={120} 
-          height={120} 
-          className="rounded-full border-4 border-primary shadow-lg object-cover"
-          data-ai-hint="profile picture"
-        />
+      <div className="flex flex-col items-start gap-4">
         <div className="flex-1">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
             Alisha Priyadarshi
