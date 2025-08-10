@@ -22,15 +22,15 @@ export async function sendContactEmail(data: ContactFormInput) {
       // This confirms the connection is working.
       // To send to your own email, you must verify your domain in Resend.
       await resend.emails.send({
-        from: `Portfolio Contact <${email}>`,
-        to: 'onboarding@resend.dev',
+        from: 'onboarding@resend.dev',
+        to: 'alishapriyadarshi098@gmail.com',
         subject: `New message from ${name} via your portfolio`,
         reply_to: email,
         html: `
           <h1>New Contact Form Submission</h1>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>(This email was sent TO onboarding@resend.dev for testing)</strong></p>
+          <p><strong>(This email was sent TO your personal email for testing from onboarding@resend.dev)</strong></p>
           <hr />
           <h2>Message:</h2>
           <p>${message}</p>
