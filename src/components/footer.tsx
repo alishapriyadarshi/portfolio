@@ -1,26 +1,19 @@
-"use client";
-
-import { Code2 } from "lucide-react"
-import React from "react";
+import { Code2 } from "lucide-react";
 
 export function Footer() {
-  const [currentYear, setCurrentYear] = React.useState<number | null>(null);
-
-  React.useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
-
-
   return (
     <footer className="border-t">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+      <div className="container mx-auto px-4 flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+        
+        {/* Icon + Text */}
         <div className="flex flex-col items-center gap-4 md:flex-row md:gap-2">
-          <Code2 />
+          <Code2 className="h-6 w-6" />
           <p className="text-center text-sm leading-loose md:text-left text-muted-foreground">
-            Built by Alisha Priyadarshi. {currentYear && <>© {currentYear} All rights reserved.</>}
+            Built by Alisha Priyadarshi. © 2025 All rights reserved.
           </p>
         </div>
+
       </div>
     </footer>
-  )
+  );
 }
