@@ -90,7 +90,7 @@ const projects = [
   {
     title: "GoalUp (React)",
     description: "A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js.",
-    image: "https://storage.googleapis.com/project-ava-dev-public/persistent/e8926943-92a1-4277-a16f-96a4891128aa",
+    image: "https://placehold.co/600x400.png",
     tags: ["React", "Next.js", "Google Auth"],
     demo: <GoalUpDemo />,
     codeSnippet: `
@@ -113,7 +113,7 @@ function Goal() {
   {
     title: "Personal Portfolio (React)",
     description: "A responsive React portfolio featuring reusable components and GitHub API integration to effectively showcase projects.",
-    image: "https://storage.googleapis.com/project-ava-dev-public/persistent/4a434d28-86d1-447a-9a0a-6e545811d739",
+    image: "https://placehold.co/600x400.png",
     tags: ["React", "GitHub API", "Responsive Design"],
     demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Portfolio Demo</div>,
     codeSnippet: `
@@ -127,7 +127,7 @@ async function getRepos(username) {
   {
     title: "Real Time Chat Application",
     description: "Built a message processing pipeline for a real-time chat app, ensuring schema validation and fast querying via MongoDB indexing.",
-    image: "https://storage.googleapis.com/project-ava-dev-public/persistent/f920f6b3-e5e5-4a6c-8512-68853b811894",
+    image: "https://placehold.co/600x400.png",
     tags: ["Real-Time", "MongoDB", "Schema Validation"],
     demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Chat Demo</div>,
     codeSnippet: `
