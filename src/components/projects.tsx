@@ -90,7 +90,6 @@ const projects = [
   {
     title: "GoalUp (React)",
     description: "A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js.",
-    image: "https://placehold.co/600x400.png",
     tags: ["React", "Next.js", "Google Auth"],
     demo: <GoalUpDemo />,
     codeSnippet: `
@@ -113,7 +112,6 @@ function Goal() {
   {
     title: "Personal Portfolio (React)",
     description: "A responsive React portfolio featuring reusable components and GitHub API integration to effectively showcase projects.",
-    image: "https://placehold.co/600x400.png",
     tags: ["React", "GitHub API", "Responsive Design"],
     demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Portfolio Demo</div>,
     codeSnippet: `
@@ -127,7 +125,6 @@ async function getRepos(username) {
   {
     title: "Real Time Chat Application",
     description: "Built a message processing pipeline for a real-time chat app, ensuring schema validation and fast querying via MongoDB indexing.",
-    image: "https://placehold.co/600x400.png",
     tags: ["Real-Time", "MongoDB", "Schema Validation"],
     demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Chat Demo</div>,
     codeSnippet: `
@@ -153,14 +150,6 @@ export function Projects() {
             <div className="mx-auto mt-12 grid gap-8 md:max-w-none md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {projects.map((project, index) => (
                     <Card key={index} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
-                        <Image
-                            src={project.image}
-                            alt={project.title}
-                            width={600}
-                            height={400}
-                            className="aspect-video object-cover"
-                            data-ai-hint="abstract technology"
-                        />
                         <div className="p-6 flex flex-col flex-grow">
                             <CardTitle>{project.title}</CardTitle>
                             <CardDescription className="mt-2 h-24">{project.description}</CardDescription>
