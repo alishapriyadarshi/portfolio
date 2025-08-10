@@ -66,13 +66,15 @@ function GoalUpDemo() {
                     {goal === null ? (
                         <>
                             <p className="font-semibold text-xl">What is your main focus for today?</p>
-                            <form onSubmit={handleSetGoal} className="w-full">
+                            <form onSubmit={handleSetGoal} className="w-full flex items-center gap-2">
                                 <Input 
                                     type="text" 
+                                    placeholder="e.g., Finish project proposal"
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
-                                    className="text-center bg-transparent border-0 border-b rounded-none focus:ring-0 focus:border-primary"
+                                    className="text-center"
                                 />
+                                <Button type="submit">Set</Button>
                             </form>
                         </>
                     ) : (
