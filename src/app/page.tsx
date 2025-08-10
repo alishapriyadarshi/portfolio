@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
 import { Skills } from "@/components/skills";
@@ -8,27 +7,51 @@ import { Footer } from "@/components/footer";
 import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
+  const sectionClass = "container py-16";
+
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="container py-12 md:py-20">
+        {/* Hero Section */}
+        <section className={sectionClass}>
           <Hero />
         </section>
-        <Separator />
-        <section className="container py-12 md:py-16">
+
+        {/* Separator */}
+        <div className="container">
+          <Separator />
+        </div>
+
+        {/* Skills Section */}
+        <section className={sectionClass}>
           <Skills />
         </section>
-        <Separator />
-        <section className="container py-12 md:py-16">
+
+        {/* Separator */}
+        <div className="container">
+          <Separator />
+        </div>
+
+        {/* Projects Section */}
+        <section className={sectionClass}>
           <Projects />
         </section>
-        <Separator />
-        <section id="contact" className="container py-12 md:py-16">
-           <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
-            <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Contact Me</h2>
-            <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                Have a project in mind or just want to say hi? Fill out the form below.
+
+        {/* Separator */}
+        <div className="container">
+          <Separator />
+        </div>
+
+        {/* Contact Section */}
+        <section id="contact" className={`${sectionClass}`}>
+          <div className="mx-auto flex max-w-[58rem] flex-col items-center text-center gap-4">
+            <h2 className="text-3xl font-bold leading-[1.1] sm:text-5xl">
+              Contact Me
+            </h2>
+            <p className="max-w-[85%] text-muted-foreground sm:text-lg sm:leading-7">
+              Have a project in mind or just want to say hi? Fill out the form
+              below.
             </p>
           </div>
           <div className="mx-auto mt-12 max-w-[64rem]">
