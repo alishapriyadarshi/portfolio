@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CodeXml, Database, Server, Palette, Cloud, Bot, type LucideIcon, GitBranch, Terminal, Code } from "lucide-react"
+import { CodeXml, Database, Server, Palette, Cloud, type LucideIcon, GitBranch, Terminal, Code } from "lucide-react"
 
 interface Skill {
   name: string;
