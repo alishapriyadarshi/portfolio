@@ -2,14 +2,17 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
-import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
-import { Check, Edit, Plus, Trash2 } from "lucide-react"
+import { Edit, Trash2 } from "lucide-react"
 import { Input } from "./ui/input";
 import { Checkbox } from "./ui/checkbox";
+import { LiveThemeSwitcher } from "./live-theme-switcher";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
+import { ChevronsUpDown } from "lucide-react";
+
 
 function GoalUpDemo() {
     const [goal, setGoal] = useState<string | null>(null);
@@ -85,39 +88,6 @@ function GoalUpDemo() {
     )
 }
 
-function ThemeCustomizerDemo() {
-    const [color, setColor] = React.useState("hsl(181 100% 28%)"); // Default primary color
-
-    const colors = [
-        { name: 'Electric Blue', hsl: 'hsl(181 100% 28%)' },
-        { name: 'Sunset Orange', hsl: 'hsl(24 96% 53%)' },
-        { name: 'Emerald Green', hsl: 'hsl(145 63% 42%)' },
-        { name: 'Royal Purple', hsl: 'hsl(262 80% 58%)' },
-    ];
-
-    return (
-        <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
-            <p className="font-semibold text-lg mb-2">Live Theme Customizer</p>
-            <div className="p-4 rounded-lg border flex flex-col gap-2 w-full" style={{ borderColor: color, transition: 'border-color 0.3s' }}>
-                <h3 className="font-bold text-md" style={{ color: color, transition: 'color 0.3s' }}>Sample Card</h3>
-                <p className="text-sm text-muted-foreground">Click a color to change my accent!</p>
-                <Button style={{ backgroundColor: color, color: 'hsl(0 0% 100%)', transition: 'background-color 0.3s' }} className="mt-2">Themed Button</Button>
-            </div>
-            <div className="flex flex-wrap justify-center gap-2 mt-4">
-                {colors.map(c => (
-                    <button
-                        key={c.name}
-                        onClick={() => setColor(c.hsl)}
-                        className="w-6 h-6 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring transition-transform hover:scale-110"
-                        style={{ backgroundColor: c.hsl }}
-                        aria-label={`Set color to ${c.name}`}
-                    />
-                ))}
-            </div>
-        </div>
-    )
-}
-
 const projects = [
   {
     title: "GoalUp (React)",
@@ -142,34 +112,38 @@ function Goal() {
 }`
   },
   {
-    title: "Personal Portfolio (React)",
-    description: "A responsive React portfolio featuring reusable components. The interactive demo below showcases how you can dynamically change theme colors.",
-    tags: ["React", "State Management", "Interactive UI"],
-    demo: <ThemeCustomizerDemo />,
+    title: "Personal Portfolio (This Website)",
+    description: "A responsive and interactive portfolio built with Next.js and ShadCN UI. The interactive demo below allows you to change the live theme of this website.",
+    tags: ["React", "Next.js", "ShadCN", "State Management"],
+    demo: (
+      <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
+          <p className="font-semibold text-lg mb-2">Live Theme Controller</p>
+          <p className="text-sm text-muted-foreground text-center">
+            This entire website is the demo! Use the controller below to change the primary color of the UI in real-time.
+          </p>
+          <LiveThemeSwitcher />
+      </div>
+    ),
     codeSnippet: `
-// Interactive Theme Customizer Demo
-function ThemeCustomizerDemo() {
-  const [color, setColor] = React.useState("hsl(181 100% 28%)");
-
-  const colors = [ 'hsl(181 100% 28%)', 'hsl(24 96% 53%)' ];
+// LiveThemeSwitcher Component
+export function LiveThemeSwitcher() {
+  const handleColorChange = (hslValue) => {
+    document.documentElement.style
+      .setProperty('--primary', hslValue);
+  };
 
   return (
-    <div>
-      <div style={{ borderColor: color }}>
-        <h3 style={{ color: color }}>Sample Card</h3>
-        <Button style={{ backgroundColor: color }}>
-          Themed Button
-        </Button>
-      </div>
-      <div>
-        {colors.map(c => (
-          <button
-            onClick={() => setColor(c)}
-            style={{ backgroundColor: c }}
-          />
-        ))}
-      </div>
-    </div>
+    <Popover>
+      {/* ... Popover Trigger ... */}
+      <PopoverContent>
+        {/* ... Color Swatches ... */}
+        <Button
+          onClick={() => handleColorChange('24 96% 53%')}
+          style={{ backgroundColor: 'hsl(24 96% 53%)' }}
+        />
+        {/* ... More Colors ... */}
+      </PopoverContent>
+    </Popover>
   )
 }`
   },
