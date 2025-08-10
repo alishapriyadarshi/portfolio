@@ -172,7 +172,7 @@ db.messages.createIndex({
 
 export function Projects() {
     return (
-        <section id="projects">
+        <section id="projects" className="container py-12 md:py-16">
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Featured Projects</h2>
                 <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
