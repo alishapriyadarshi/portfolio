@@ -14,12 +14,26 @@ interface Message {
   timestamp: string;
 }
 
+const initialBotMessage = {
+  sender: 'bot' as const,
+  text: "Hello! This is a demo of a real-time chat interface. Try sending a message!",
+  timestamp: '',
+};
+
 export function ChatDemo() {
-  const [messages, setMessages] = useState<Message[]>([
-    { sender: 'bot', text: "Hello! This is a demo of a real-time chat interface. Try sending a message!", timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) },
-  ]);
+  const [messages, setMessages] = useState<Message[]>([initialBotMessage]);
   const [inputValue, setInputValue] = useState('');
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Set the initial timestamp on the client to avoid hydration mismatch
+    setMessages([
+        { 
+            ...initialBotMessage, 
+            timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) 
+        }
+    ]);
+  }, []);
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,7 +83,7 @@ export function ChatDemo() {
                 )}
                  <div className={cn("max-w-[75%] rounded-lg p-3 text-sm", msg.sender === 'user' ? 'bg-primary text-primary-foreground' : 'bg-muted')}>
                     <p>{msg.text}</p>
-                    <p className={cn("text-xs mt-1", msg.sender === 'user' ? 'text-primary-foreground/70' : 'text-muted-foreground/70' )}>{msg.timestamp}</p>
+                    {msg.timestamp && <p className={cn("text-xs mt-1", msg.sender === 'user' ? 'text-primary-foreground/70' : 'text-muted-foreground/70' )}>{msg.timestamp}</p>}
                 </div>
                  {msg.sender === 'user' && (
                   <Avatar className="h-8 w-8">

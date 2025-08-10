@@ -1,4 +1,5 @@
 
+
 "use client"
 
 import React, { useState, useEffect } from "react";
@@ -20,7 +21,7 @@ function GoalUpDemo() {
     const [inputValue, setInputValue] = useState("");
     const [isCompleted, setIsCompleted] = useState(false);
     const [greeting, setGreeting] = useState("Hello");
-    const [currentDate, setCurrentDate] = useState("");
+    const [currentDate, setCurrentDate] = useState<string | null>(null);
 
     useEffect(() => {
         const hour = new Date().getHours();
@@ -58,32 +59,38 @@ function GoalUpDemo() {
 
     return (
         <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
-            <p className="text-muted-foreground">{greeting}, Alisha.</p>
-            <p className="font-bold text-lg">{currentDate}</p>
-            {goal === null ? (
+            {currentDate ? (
                 <>
-                    <p className="font-semibold text-xl">What is your main focus for today?</p>
-                    <form onSubmit={handleSetGoal} className="w-full">
-                        <Input 
-                            type="text" 
-                            value={inputValue}
-                            onChange={(e) => setInputValue(e.target.value)}
-                            className="text-center bg-transparent border-0 border-b rounded-none focus:ring-0 focus:border-primary"
-                        />
-                    </form>
+                    <p className="text-muted-foreground">{greeting}, Alisha.</p>
+                    <p className="font-bold text-lg">{currentDate}</p>
+                    {goal === null ? (
+                        <>
+                            <p className="font-semibold text-xl">What is your main focus for today?</p>
+                            <form onSubmit={handleSetGoal} className="w-full">
+                                <Input 
+                                    type="text" 
+                                    value={inputValue}
+                                    onChange={(e) => setInputValue(e.target.value)}
+                                    className="text-center bg-transparent border-0 border-b rounded-none focus:ring-0 focus:border-primary"
+                                />
+                            </form>
+                        </>
+                    ) : (
+                        <>
+                            <p className="text-muted-foreground text-sm">TODAY'S FOCUS</p>
+                            <div className="flex items-center gap-2">
+                                <Checkbox id="goal" checked={isCompleted} onCheckedChange={() => setIsCompleted(!isCompleted)} />
+                                <label htmlFor="goal" className={`text-xl font-bold ${isCompleted ? 'line-through text-muted-foreground' : ''}`}>{goal}</label>
+                            </div>
+                            <div className="flex gap-2">
+                                <Button variant="ghost" size="icon" onClick={handleEdit}><Edit className="w-4 h-4" /></Button>
+                                <Button variant="ghost" size="icon" onClick={handleDelete}><Trash2 className="w-4 h-4" /></Button>
+                            </div>
+                        </>
+                    )}
                 </>
             ) : (
-                <>
-                    <p className="text-muted-foreground text-sm">TODAY'S FOCUS</p>
-                    <div className="flex items-center gap-2">
-                        <Checkbox id="goal" checked={isCompleted} onCheckedChange={() => setIsCompleted(!isCompleted)} />
-                        <label htmlFor="goal" className={`text-xl font-bold ${isCompleted ? 'line-through text-muted-foreground' : ''}`}>{goal}</label>
-                    </div>
-                    <div className="flex gap-2">
-                        <Button variant="ghost" size="icon" onClick={handleEdit}><Edit className="w-4 h-4" /></Button>
-                        <Button variant="ghost" size="icon" onClick={handleDelete}><Trash2 className="w-4 h-4" /></Button>
-                    </div>
-                </>
+                <div className="h-[104px]" />
             )}
         </div>
     )
