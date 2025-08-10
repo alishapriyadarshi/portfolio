@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
   title: 'Alisha Priyadarshi | Web Developer',
-  description: 'Experienced Web Developer specializing in responsive and optimized web applications.',
+  description: 'A dedicated Web Developer specializing in responsive and optimized web applications.',
 };
 
 export default function RootLayout({
