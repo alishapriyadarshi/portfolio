@@ -3,7 +3,7 @@ import { Code2 } from "lucide-react";
 export function Footer() {
   return (
     <footer className="border-t">
-      <div className="container mx-auto px-4 flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-4 py-10 md:h-24 md:flex-row md:py-0">
         
         {/* Icon + Text */}
         <div className="flex flex-col items-center gap-4 md:flex-row md:gap-2">
