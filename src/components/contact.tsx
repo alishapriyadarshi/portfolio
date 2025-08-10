@@ -20,7 +20,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { contactFormSchema } from "@/lib/schemas"
 import { Card, CardContent } from "./ui/card"
-import { sendContactEmail } from "@/ai/flows/contact-flow"
+import { sendContactEmail } from "@/lib/actions"
 
 export function ContactForm() {
   const { toast } = useToast()
