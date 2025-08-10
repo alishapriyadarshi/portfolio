@@ -1,7 +1,15 @@
+"use client";
+
 import { Code2 } from "lucide-react"
+import React from "react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const [currentYear, setCurrentYear] = React.useState(new Date().getFullYear());
+
+  React.useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
 
   return (
     <footer className="border-t">
