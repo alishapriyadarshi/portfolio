@@ -6,9 +6,11 @@ import { Resend } from 'resend';
 
 type ContactFormInput = z.infer<typeof contactFormSchema>;
 
-// IMPORTANT: Using the API key directly in code is not recommended for production.
-// It's better to use an environment variable like process.env.RESEND_API_KEY
-const resend = new Resend('re_97rY5S3f_MsP3KhTBrqJek14nLduXJXoa');
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('RESEND_API_KEY is not set in the environment variables.');
+}
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendContactEmail(data: ContactFormInput) {
   const result = contactFormSchema.safeParse(data);
