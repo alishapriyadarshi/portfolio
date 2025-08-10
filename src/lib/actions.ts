@@ -23,7 +23,7 @@ export async function sendContactEmail(data: ContactFormInput) {
       // To send to your own email, you must verify your domain in Resend.
       await resend.emails.send({
         from: 'onboarding@resend.dev',
-        to: 'alishapriyadarshi098@gmail.com',
+        to: 'shahidkhan9382@gmail.com',
         subject: `New message from ${name} via your portfolio`,
         reply_to: email,
         html: `
