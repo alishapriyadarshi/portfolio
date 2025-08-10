@@ -16,13 +16,13 @@ export function Hero() {
         />
         <div className="flex-1">
           <h1 className="text-4xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
-            John Doe
+            Alisha Priyadarshi
           </h1>
           <p className="text-lg text-primary sm:text-xl font-medium">
-            Full-Stack Developer & UI/UX Enthusiast
+            Web Developer
           </p>
           <p className="mt-4 max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            I build modern, responsive, and engaging web applications. Currently exploring the possibilities of AI-driven user experiences.
+            Experienced Web Developer specializing in responsive and optimized web applications. Proficient in HTML, CSS, JavaScript, and React, with foundational skills in Next.js. Eager to contribute innovative solutions and strong problem-solving abilities to drive business success.
           </p>
         </div>
       </div>

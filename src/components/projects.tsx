@@ -25,34 +25,55 @@ function InteractiveCounter() {
 
 const projects = [
   {
-    title: "Component Library",
-    description: "A set of reusable and accessible React components for building applications faster.",
+    title: "GoalUp (React)",
+    description: "A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js.",
     image: "https://placehold.co/600x400.png",
-    tags: ["React", "TypeScript", "Storybook"],
+    tags: ["React", "Next.js", "Google Auth"],
     demo: <InteractiveCounter />,
     codeSnippet: `
-function Counter() {
-  const [count, setCount] = useState(0);
+// Goal Management Component
+function Goal() {
+  const [goal, setGoal] = useState("");
+  // ...
   return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(c => c + 1)}>+</button>
-      <button onClick={() => setCount(c => c - 1)}>-</button>
-    </div>
-  );
+    <form>
+      <input 
+        type="text" 
+        value={goal}
+        onChange={(e) => setGoal(e.target.value)}
+      />
+      <button type="submit">Set Goal</button>
+    </form>
+  )
 }`
   },
   {
-    title: "AI Chatbot",
-    description: "An intelligent chatbot integrated with a large language model to assist users.",
+    title: "Personal Portfolio (React)",
+    description: "A responsive React portfolio featuring reusable components and GitHub API integration to effectively showcase projects.",
     image: "https://placehold.co/600x400.png",
-    tags: ["AI", "Next.js", "Tailwind CSS"],
-    demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Live demo coming soon!</div>,
+    tags: ["React", "GitHub API", "Responsive Design"],
+    demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Portfolio Demo</div>,
     codeSnippet: `
-async function getResponse(prompt) {
-  const response = await ai.generateText({ prompt });
-  return response;
+// Fetching GitHub Repos
+async function getRepos(username) {
+  const response = await fetch(\`https://api.github.com/users/\${username}/repos\`);
+  const data = await response.json();
+  return data;
 }`
+  },
+  {
+    title: "Real Time Chat Application",
+    description: "Built a message processing pipeline for a real-time chat app, ensuring schema validation and fast querying via MongoDB indexing.",
+    image: "https://placehold.co/600x400.png",
+    tags: ["Real-Time", "MongoDB", "Schema Validation"],
+    demo: <div className="flex items-center justify-center text-center text-muted-foreground p-6 rounded-lg border bg-background min-h-[108px]">Chat Demo</div>,
+    codeSnippet: `
+// MongoDB Indexing for Chat
+db.messages.createIndex({ 
+  channelId: 1, 
+  timestamp: -1 
+});
+`
   }
 ]
 
@@ -66,7 +87,7 @@ export function Projects() {
                 </p>
             </div>
 
-            <div className="mx-auto mt-12 grid gap-8 md:max-w-none md:grid-cols-1 lg:grid-cols-2">
+            <div className="mx-auto mt-12 grid gap-8 md:max-w-none md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
                 {projects.map((project, index) => (
                     <Card key={index} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
                         <Image
@@ -79,7 +100,7 @@ export function Projects() {
                         />
                         <div className="p-6 flex flex-col flex-grow">
                             <CardTitle>{project.title}</CardTitle>
-                            <CardDescription className="mt-2">{project.description}</CardDescription>
+                            <CardDescription className="mt-2 h-24">{project.description}</CardDescription>
                             <div className="flex flex-wrap gap-2 my-4">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                             </div>

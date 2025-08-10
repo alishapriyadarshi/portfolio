@@ -4,8 +4,8 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Portfolio Pro',
-  description: 'A modern, interactive portfolio to showcase skills and projects.',
+  title: 'Alisha Priyadarshi | Web Developer',
+  description: 'Experienced Web Developer specializing in responsive and optimized web applications.',
 };
 
 export default function RootLayout({

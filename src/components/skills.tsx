@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CodeXml, Database, Server, Palette, Cloud, Bot, type LucideIcon } from "lucide-react"
+import { CodeXml, Database, Server, Palette, Cloud, Bot, type LucideIcon, GitBranch, Terminal, Code } from "lucide-react"
 
 interface Skill {
   name: string;
@@ -8,12 +8,17 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  { name: "React / Next.js", icon: CodeXml, description: "Building dynamic front-end experiences." },
+  { name: "HTML", icon: CodeXml, description: "Structuring web content." },
+  { name: "CSS", icon: Palette, description: "Styling web applications." },
+  { name: "JavaScript", icon: Code, description: "Building interactive experiences." },
+  { name: "Core Java", icon: Code, description: "Building robust applications." },
+  { name: "C", icon: Code, description: "Foundational programming language." },
+  { name: "MySQL", icon: Database, description: "Managing relational databases." },
+  { name: "React.js", icon: CodeXml, description: "Building dynamic front-end experiences." },
   { name: "Node.js", icon: Server, description: "Creating fast and scalable back-end services." },
-  { name: "Databases", icon: Database, description: "Proficient with SQL and NoSQL databases." },
-  { name: "UI/UX Design", icon: Palette, description: "Designing intuitive and beautiful interfaces." },
-  { name: "Cloud Services", icon: Cloud, description: "Deploying and managing apps on the cloud." },
-  { name: "Generative AI", icon: Bot, description: "Integrating AI for smarter applications." },
+  { name: "Git", icon: GitBranch, description: "Version control for projects." },
+  { name: "VS Code", icon: Terminal, description: "My code editor of choice." },
+  { name: "MongoDB", icon: Database, description: "Working with NoSQL databases." },
 ]
 
 export function Skills() {
