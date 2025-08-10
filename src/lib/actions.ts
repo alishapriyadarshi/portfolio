@@ -6,7 +6,8 @@ import { Resend } from 'resend';
 
 type ContactFormInput = z.infer<typeof contactFormSchema>;
 
-// Note: It's best practice to use process.env.RESEND_API_KEY
+// IMPORTANT: Using the API key directly in code is not recommended for production.
+// It's better to use an environment variable like process.env.RESEND_API_KEY
 const resend = new Resend('re_5WLtNeiR_5vHZvMrwKTYdEQxHEEncf9Dm');
 
 export async function sendContactEmail(data: ContactFormInput) {
@@ -16,16 +17,20 @@ export async function sendContactEmail(data: ContactFormInput) {
     try {
       const { name, email, message } = result.data;
       
+      // For testing, Resend recommends sending TO onboarding@resend.dev.
+      // This email will appear in your Resend account, not your personal inbox.
+      // This confirms the connection is working.
+      // To send to your own email, you must verify your domain in Resend.
       await resend.emails.send({
-        from: 'onboarding@resend.dev', // This must be a verified domain in Resend
-        to: 'alishapriyadarshi098@gmail.com',
+        from: `Portfolio Contact <${email}>`,
+        to: 'onboarding@resend.dev',
         subject: `New message from ${name} via your portfolio`,
         reply_to: email,
         html: `
           <h1>New Contact Form Submission</h1>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>(This email was sent to alishapriyadarshi098@gmail.com)</strong></p>
+          <p><strong>(This email was sent TO onboarding@resend.dev for testing)</strong></p>
           <hr />
           <h2>Message:</h2>
           <p>${message}</p>
@@ -35,7 +40,9 @@ export async function sendContactEmail(data: ContactFormInput) {
       return { success: true, message: 'Your message has been sent successfully!' };
     } catch (error) {
       console.error('Email sending error:', error);
-      return { success: false, message: 'Failed to send email. Please try again later.' };
+      // This will now return a more specific error if Resend fails.
+      const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred';
+      return { success: false, message: `Failed to send email: ${errorMessage}` };
     }
   }
 
