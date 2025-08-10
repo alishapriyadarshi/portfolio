@@ -12,15 +12,15 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <section className="container">
+        <section className="container py-12 md:py-20">
           <Hero />
         </section>
         <Separator />
-        <section className="container">
+        <section className="container py-12 md:py-16">
           <Skills />
         </section>
         <Separator />
-        <section className="container">
+        <section className="container py-12 md:py-16">
           <Projects />
         </section>
         <Separator />

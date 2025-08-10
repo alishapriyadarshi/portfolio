@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <div className="grid items-center gap-6 py-12 md:py-20">
+    <div className="grid items-center gap-6">
       <div className="flex flex-col items-start gap-4 md:flex-row md:gap-8">
         <Image 
           src="https://storage.googleapis.com/project-ava-dev-public/persistent/1b14a93a-1725-48b4-9844-773a4b64e0d9" 
