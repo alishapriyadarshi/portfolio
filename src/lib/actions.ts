@@ -18,14 +18,14 @@ export async function sendContactEmail(data: ContactFormInput) {
       
       await resend.emails.send({
         from: 'onboarding@resend.dev', // This must be a verified domain in Resend
-        to: 'onboarding@resend.dev', // Changed to testing address for delivery
+        to: 'alishapriyadarshi098@gmail.com',
         subject: `New message from ${name} via your portfolio`,
         reply_to: email,
         html: `
           <h1>New Contact Form Submission</h1>
           <p><strong>Name:</strong> ${name}</p>
           <p><strong>Email:</strong> ${email}</p>
-          <p><strong>(This email was sent to onboarding@resend.dev for testing)</strong></p>
+          <p><strong>(This email was sent to alishapriyadarshi098@gmail.com)</strong></p>
           <hr />
           <h2>Message:</h2>
           <p>${message}</p>
