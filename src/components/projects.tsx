@@ -1,27 +1,90 @@
+
 "use client"
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
-import { Minus, Plus } from "lucide-react"
+import { Check, Edit, Plus, Trash2 } from "lucide-react"
+import { Input } from "./ui/input";
+import { Checkbox } from "./ui/checkbox";
 
-function InteractiveCounter() {
-    const [count, setCount] = React.useState(0);
+function GoalUpDemo() {
+    const [goal, setGoal] = useState<string | null>(null);
+    const [inputValue, setInputValue] = useState("");
+    const [isCompleted, setIsCompleted] = useState(false);
+    const [greeting, setGreeting] = useState("Hello");
+    const [currentDate, setCurrentDate] = useState("");
+
+    useEffect(() => {
+        const hour = new Date().getHours();
+        if (hour < 12) {
+            setGreeting("Good morning");
+        } else if (hour < 18) {
+            setGreeting("Good afternoon");
+        } else {
+            setGreeting("Good evening");
+        }
+
+        setCurrentDate(new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }));
+    }, []);
+
+    const handleSetGoal = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (inputValue.trim()) {
+            setGoal(inputValue);
+            setInputValue("");
+            setIsCompleted(false);
+        }
+    };
+
+    const handleEdit = () => {
+        if (goal) {
+            setInputValue(goal);
+            setGoal(null);
+        }
+    }
+
+    const handleDelete = () => {
+        setGoal(null);
+        setIsCompleted(false);
+    }
+
     return (
-        <div className="flex items-center justify-center space-x-4 rounded-lg border bg-background p-6">
-            <Button variant="outline" size="icon" onClick={() => setCount(count - 1)}>
-                <Minus className="h-4 w-4" />
-            </Button>
-            <span className="text-2xl font-bold w-12 text-center tabular-nums">{count}</span>
-            <Button variant="outline" size="icon" onClick={() => setCount(count + 1)}>
-                <Plus className="h-4 w-4" />
-            </Button>
+        <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
+            <p className="text-muted-foreground">{greeting}, Alisha.</p>
+            <p className="font-bold text-lg">{currentDate}</p>
+            {goal === null ? (
+                <>
+                    <p className="font-semibold text-xl">What is your main focus for today?</p>
+                    <form onSubmit={handleSetGoal} className="w-full">
+                        <Input 
+                            type="text" 
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            className="text-center bg-transparent border-0 border-b rounded-none focus:ring-0 focus:border-primary"
+                        />
+                    </form>
+                </>
+            ) : (
+                <>
+                    <p className="text-muted-foreground text-sm">TODAY'S FOCUS</p>
+                    <div className="flex items-center gap-2">
+                        <Checkbox id="goal" checked={isCompleted} onCheckedChange={() => setIsCompleted(!isCompleted)} />
+                        <label htmlFor="goal" className={`text-xl font-bold ${isCompleted ? 'line-through text-muted-foreground' : ''}`}>{goal}</label>
+                    </div>
+                    <div className="flex gap-2">
+                        <Button variant="ghost" size="icon" onClick={handleEdit}><Edit className="w-4 h-4" /></Button>
+                        <Button variant="ghost" size="icon" onClick={handleDelete}><Trash2 className="w-4 h-4" /></Button>
+                    </div>
+                </>
+            )}
         </div>
     )
 }
+
 
 const projects = [
   {
@@ -29,7 +92,7 @@ const projects = [
     description: "A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js.",
     image: "https://placehold.co/600x400.png",
     tags: ["React", "Next.js", "Google Auth"],
-    demo: <InteractiveCounter />,
+    demo: <GoalUpDemo />,
     codeSnippet: `
 // Goal Management Component
 function Goal() {
