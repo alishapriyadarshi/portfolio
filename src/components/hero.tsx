@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
-import Image from "next/image"
 
 export function Hero() {
   return (
@@ -14,7 +13,7 @@ export function Hero() {
             Web Developer
           </p>
           <p className="mt-4 max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            Experienced Web Developer specializing in responsive and optimized web applications. Proficient in HTML, CSS, JavaScript, and React, with foundational skills in Next.js. Eager to contribute innovative solutions and strong problem-solving abilities to drive business success.
+            Experienced Web Developer specializing in responsive and optimized web applications. Proficient in HTML, CSS, JavaScript, and building modern UIs with React and Next.js. Eager to contribute innovative solutions and strong problem-solving abilities to drive business success.
           </p>
         </div>
       </div>

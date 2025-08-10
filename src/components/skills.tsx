@@ -8,13 +8,14 @@ interface Skill {
 }
 
 const skills: Skill[] = [
+  { name: "React.js", icon: CodeXml, description: "Building dynamic front-end experiences." },
+  { name: "Next.js", icon: CodeXml, description: "Building performant React applications." },
   { name: "HTML", icon: CodeXml, description: "Structuring web content." },
   { name: "CSS", icon: Palette, description: "Styling web applications." },
   { name: "JavaScript", icon: Code, description: "Building interactive experiences." },
   { name: "Core Java", icon: Code, description: "Building robust applications." },
   { name: "C", icon: Code, description: "Foundational programming language." },
   { name: "MySQL", icon: Database, description: "Managing relational databases." },
-  { name: "React.js", icon: CodeXml, description: "Building dynamic front-end experiences." },
   { name: "Node.js", icon: Server, description: "Creating fast and scalable back-end services." },
   { name: "Git", icon: GitBranch, description: "Version control for projects." },
   { name: "VS Code", icon: Terminal, description: "My code editor of choice." },
