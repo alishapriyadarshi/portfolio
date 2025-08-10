@@ -11,11 +11,17 @@ export default function Home() {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
-        <Hero />
+        <section className="container">
+          <Hero />
+        </section>
         <Separator />
-        <Skills />
+        <section className="container">
+          <Skills />
+        </section>
         <Separator />
-        <Projects />
+        <section className="container">
+          <Projects />
+        </section>
         <Separator />
         <section id="contact" className="container py-12 md:py-16">
            <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
