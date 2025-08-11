@@ -1,5 +1,3 @@
-'use server';
-
 import { z } from 'zod';
 import { contactFormSchema } from './schemas'; // Keep schema import
 
