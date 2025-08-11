@@ -8,7 +8,7 @@ export function Header() {
         {/* Logo + Title */}
         <div className="mr-4 flex items-center">
           <Code2 className="h-6 w-6 mr-2" />
-          <span className="font-bold text-lg">Portfolio Pro</span>
+          <span className="font-bold text-lg">Portfolio</span>
         </div>
 
         {/* Right-side Nav */}
