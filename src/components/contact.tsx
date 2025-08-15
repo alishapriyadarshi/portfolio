@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import type { z } from "zod"
 import { Loader2 } from "lucide-react"
 import React from "react"
-
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { contactFormSchema } from "@/lib/schemas"
+import { Github, Linkedin } from "lucide-react"
 import { Card, CardContent } from "./ui/card"
 import { sendContactEmail } from "@/lib/actions"
 
@@ -119,6 +120,18 @@ export function ContactForm() {
             </Button>
           </form>
         </Form>
+        <div className="flex justify-center gap-4 mt-8">
+          <Link
+            href="https://www.linkedin.com/in/alisha-priyadarshi-99b573279/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin className="h-6 w-6 text-muted-foreground hover:text-primary" />
+          </Link>
+          <Link href="https://github.com/alishapriyadarshi" target="_blank" rel="noopener noreferrer">
+            <Github className="h-6 w-6 text-muted-foreground hover:text-primary" />
+          </Link>
+        </div>
       </CardContent>
     </Card>
   )

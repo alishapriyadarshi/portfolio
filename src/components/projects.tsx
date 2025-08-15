@@ -101,7 +101,7 @@ function GoalUpDemo() {
 const projects = [
   {
     title: "GoalUp (React)",
-    description: "A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js.",
+    description: <>A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js. See the live demo <a href="https://alishapriyadarshi.github.io/goalUp" target="_blank" rel="noopener noreferrer" className="underline">here</a>.</>,
     tags: ["React", "Next.js", "Google Auth"],
     demo: <GoalUpDemo />,
     codeSnippet: `
