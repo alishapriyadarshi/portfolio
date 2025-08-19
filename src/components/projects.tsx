@@ -101,7 +101,7 @@ function GoalUpDemo() {
 const projects = [
   {
     title: "GoalUp (React)",
-    description: <>A responsive goal management web app with Google authentication, dynamic goal creation/editing, and progress tracking using React and Next.js. See the live demo <a href="https://alishapriyadarshi.github.io/goalUp" target="_blank" rel="noopener noreferrer" className="underline">here</a>.</>,
+    description: <>A responsive and intuitive goal management web application designed to help users track and achieve their daily objectives. Features include seamless Google authentication for secure access, dynamic goal creation and editing capabilities, and a clear visual representation of progress towards completion. Built with React and Next.js, ensuring a fast and performant user experience. See the live demo <a href="https://alishapriyadarshi.github.io/goalUp" target="_blank" rel="noopener noreferrer" className="underline">here</a>.</>,
     tags: ["React", "Next.js", "Google Auth"],
     demo: <GoalUpDemo />,
     codeSnippet: `
@@ -123,7 +123,7 @@ function Goal() {
   },
   {
     title: "Personal Portfolio (This Website)",
-    description: "A responsive and interactive portfolio built with Next.js and ShadCN UI. The interactive demo below allows you to change the live theme of this website.",
+    description: "This very website serves as a demonstration of a modern, responsive personal portfolio. It's built using Next.js for server-side rendering and routing, and styled with ShadCN UI components for a clean and accessible design. The interactive demo below allows you to directly control and preview different theme options for the website's user interface in real-time.",
     tags: ["React", "Next.js", "ShadCN", "State Management"],
     demo: (
       <div className="flex flex-col items-center justify-center space-y-4 rounded-lg border bg-background p-6 text-center min-h-[200px]">
@@ -187,7 +187,7 @@ export function Projects() {
             <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center">
                 <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-5xl">Featured Projects</h2>
                 <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-                    Here are some of the projects I'm proud of. Each card features an interactive demo.
+                    Here are some of the projects I'm proud of Each card features an interactive demo.
                 </p>
             </div>
 
@@ -196,7 +196,7 @@ export function Projects() {
                     <Card key={index} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
                         <div className="p-6 flex flex-col flex-grow">
                             <CardTitle>{project.title}</CardTitle>
-                            <CardDescription className="mt-2 h-24">{project.description}</CardDescription>
+                            <CardDescription className="mt-2 h-28">{project.description}</CardDescription>
                             <div className="flex flex-wrap gap-2 my-4">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
                             </div>

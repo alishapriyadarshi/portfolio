@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CodeXml, Database, Server, Palette, Cloud, type LucideIcon, GitBranch, Terminal, Code } from "lucide-react"
+import { CodeXml, Database, Server, Palette, Cloud, type LucideIcon, GitBranch, Terminal, Code, Bot } from "lucide-react"
 
 interface Skill {
   name: string;
@@ -11,6 +11,8 @@ const skills: Skill[] = [
   { name: "React.js", icon: CodeXml, description: "Building dynamic front-end experiences." },
   { name: "Next.js", icon: CodeXml, description: "Building performant React applications." },
   { name: "HTML", icon: CodeXml, description: "Structuring web content." },
+ { name: "TypeScript", icon: Code, description: "Adding static typing to JavaScript for improved code quality." },
+ { name: "AI Tools", icon: Bot, description: "Leveraging AI for development and problem-solving." },
   { name: "CSS", icon: Palette, description: "Styling web applications." },
   { name: "JavaScript", icon: Code, description: "Building interactive experiences." },
   { name: "Core Java", icon: Code, description: "Building robust applications." },

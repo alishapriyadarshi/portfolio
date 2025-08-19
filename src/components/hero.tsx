@@ -9,11 +9,11 @@ export function Hero() {
           <h1 className="text-4xl font-extrabold leading-tight tracking-tighter md:text-5xl lg:text-6xl lg:leading-[1.1]">
             Alisha Priyadarshi
           </h1>
-          <p className="text-lg text-primary sm:text-xl font-medium">
-            Web Developer
+          <p className="text-lg text-primary sm:text-xl font-medium italic">
+            Technology Enthusiast
           </p>
           <p className="mt-4 max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            A dedicated Web Developer specializing in responsive and optimized web applications. Proficient in HTML, CSS, JavaScript, and building modern UIs with React and Next.js. Eager to contribute innovative solutions and strong problem-solving abilities to drive business success.
+            A passionate and driven technology enthusiast with a strong foundation in various tech stacks. Eager to learn, adapt, and contribute innovative solutions to challenging projects. Possessing strong problem-solving skills and a collaborative spirit.
           </p>
         </div>
       </div>
