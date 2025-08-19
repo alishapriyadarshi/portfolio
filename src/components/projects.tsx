@@ -195,11 +195,11 @@ export function Projects() {
                 {projects.map((project, index) => (
                     <Card key={index} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
                         <div className="p-6 flex flex-col flex-grow">
-                            <CardTitle>{project.title}</CardTitle>
-                            <CardDescription className="mt-2 h-28">{project.description}</CardDescription>
+                            <CardTitle className="min-h-[60px]">{project.title}</CardTitle>
+                            <CardDescription className="mt-2">{project.description}</CardDescription>
                             <div className="flex flex-wrap gap-2 my-4">
                                 {project.tags.map(tag => <Badge key={tag} variant="secondary">{tag}</Badge>)}
-                            </div>
+                            </div>                            
                             <div className="mt-auto">
                                 <Tabs defaultValue="demo" className="w-full">
                                     <TabsList className="grid w-full grid-cols-2">
