@@ -158,9 +158,9 @@ export function LiveThemeSwitcher() {
 }`
   },
   {
-    title: "Real Time Chat Application",
-    description: "Built a message processing pipeline for a real-time chat app, ensuring schema validation and fast querying via MongoDB indexing.",
-    tags: ["Real-Time", "MongoDB", "Schema Validation"],
+    title: "ChatVerse (Next.js)",
+    description: <>Engineered a scalable, real-time messaging system by leveraging Firebase's native capabilities for instant data synchronisation. Featuring a unique anonymous-only authentication system and an integrated Gemini-powered chatbot for interactive conversation. See the live demo <a href="https://chatverse-v8eax.web.app" target="_blank" rel="noopener noreferrer" className="underline">here</a>.</>,
+    tags: ["Real-Time", "Firebase", "Next.js", "Anonymous Auth", "Gemini Chat"],
     demo: <ChatDemo />,
     codeSnippet: `
 // Message Handling Logic
