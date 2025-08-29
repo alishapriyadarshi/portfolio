@@ -100,34 +100,34 @@ export function KaratsDemo() {
     }, []);
 
     return (
-        <Card className="w-full max-w-md mx-auto">
+        <Card className="w-full max-w-md mx-auto bg-background">
             <CardContent className="p-6">
                 <div className="text-center mb-4">
-                    <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-600">
+                    <h1 className="text-2xl font-bold text-primary">
                         Karats
                     </h1>
                     <p className="text-sm text-muted-foreground">Live Metal Prices</p>
                 </div>
 
                 {loading && <p className="text-center">Loading...</p>}
-                {error && <p className="text-center text-red-500 text-sm mb-2">{error}</p>}
+                {error && <p className="text-center text-destructive text-sm mb-2">{error}</p>}
                 
                 {apiData && (
                     <div className="space-y-4">
-                        <div className="flex justify-between items-center p-4 rounded-lg bg-gradient-to-br from-gray-800 to-gray-900 text-white">
+                        <div className="flex justify-between items-center p-4 rounded-lg bg-primary text-primary-foreground">
                             <div>
                                 <p className="text-lg font-semibold">Gold (XAU)</p>
-                                <p className="text-xs text-gray-400">per ounce</p>
+                                <p className="text-xs text-primary-foreground/80">per ounce</p>
                             </div>
                             <div className="text-right">
                                 <p className="text-2xl font-bold">${apiData.price.toFixed(2)}</p>
-                                <p className={`text-sm ${apiData.ch >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                <p className={`text-sm ${apiData.ch >= 0 ? 'text-green-300' : 'text-red-300'}`}>
                                     {apiData.ch.toFixed(2)} ({apiData.chp.toFixed(2)}%)
                                 </p>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-2 text-sm">
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm">
                             <div className="p-2 bg-muted rounded">
                                 <p className="text-muted-foreground">24k/gram</p>
                                 <p className="font-semibold">${apiData.price_gram_24k.toFixed(2)}</p>
@@ -136,7 +136,7 @@ export function KaratsDemo() {
                                 <p className="text-muted-foreground">22k/gram</p>
                                 <p className="font-semibold">${apiData.price_gram_22k.toFixed(2)}</p>
                             </div>
-                            <div className="p-2 bg-muted rounded">
+                            <div className="p-2 bg-muted rounded col-span-2 sm:col-span-1">
                                 <p className="text-muted-foreground">18k/gram</p>
                                 <p className="font-semibold">${apiData.price_gram_18k.toFixed(2)}</p>
                             </div>

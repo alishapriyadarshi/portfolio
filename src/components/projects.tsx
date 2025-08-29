@@ -217,7 +217,7 @@ export function Projects() {
                 </p>
             </div>
 
-            <div className="mx-auto mt-12 grid gap-8 md:max-w-none md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+            <div className="mx-auto mt-12 grid gap-8 md:max-w-none md:grid-cols-2">
                 {projects.map((project, index) => (
                     <Card key={index} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow">
                         <div className="p-6 flex flex-col flex-grow">
