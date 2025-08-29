@@ -14,6 +14,7 @@ import { LiveThemeSwitcher } from "./live-theme-switcher";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { ChevronsUpDown } from "lucide-react";
 import { ChatDemo } from "./chat-demo";
+import { KaratsDemo } from "./karats-demo";
 
 
 function GoalUpDemo() {
@@ -178,6 +179,31 @@ const sendMessage = () => {
     setInput('');
   }
 };`
+  },
+  {
+    title: "Karats - A Cross-Platform Metals Price Tracker",
+    description: <>Developed a React Native (Expo Router) app that fetches live commodity data (Gold, Silver, Platinum, Palladium) from GoldAPI and displays it in an intuitive, gradient-styled interface. Designed a resilient data layer with AsyncStorage caching, daily refresh quota (2 refreshes/day), and error handling so the app continues to function smoothly even when API quota is exceeded or offline. See the live demo <a href="https://karats.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline">here</a>.</>,
+    tags: ["React Native", "Expo", "API Integration", "AsyncStorage"],
+    demo: <KaratsDemo />,
+    codeSnippet: `
+// Karats Demo Component
+export function KaratsDemo() {
+    const [apiData, setApiData] = useState(null);
+    const [loading, setLoading] = useState(true);
+    // ...
+    const fetchData = async (forceRefresh = false) => {
+      // ...
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    return (
+      // ... JSX for the demo
+    );
+}
+`
   }
 ]
 
